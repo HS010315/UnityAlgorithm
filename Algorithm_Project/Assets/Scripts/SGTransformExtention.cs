@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public static class SGTransformExtention
@@ -41,17 +40,17 @@ public static class SGTransformExtention
         self.localScale = SGUtil.VECTOR3_ONE;
     }
 
-    public static void setEulerAnlesX(this Transform self, float x)
+    public static void setEulerAnglesX(this Transform self, float x)
     {
         Vector3 selfAngles = self.eulerAngles;
         self.rotation = Quaternion.Euler(x, selfAngles.y, selfAngles.z);
     }
-    public static void setEulerAnlesY(this Transform self, float y)
+    public static void setEulerAnglesY(this Transform self, float y)
     {
         Vector3 selfAngles = self.eulerAngles;
         self.rotation = Quaternion.Euler(selfAngles.x, y , selfAngles.z);
     }
-    public static void setEulerAnlesZ(this Transform self, float z)
+    public static void setEulerAnglesZ(this Transform self, float z)
     {
         Vector3 selfAngles = self.eulerAngles;
         self.rotation = Quaternion.Euler(selfAngles.x, selfAngles.y, z);
