@@ -13,11 +13,10 @@ public static class SGUtil
     public static readonly Vector2 VECTOR2_HALF = new Vector2(0.5f, 0.5f);
 
     public static readonly Quaternion QUATERNION_IDENTITY = Quaternion.identity;
-
     public enum AXIS
     {
-        X_AXIS_Y,
-        X_AXIS_Z,
+        X_AND_Y,
+        X_AND_Z,
     }
 
     public enum TIME
@@ -27,29 +26,32 @@ public static class SGUtil
         FIXED_DELTA_TIME,
     }
 
-    public static float GetAngleFromTwoPosition(Transform fromTrans, Transform toTrnas, AXIS axisMove)
+
+    public static float GetAngleFromTwoPosition(Transform fromTrans, Transform toTrans, AXIS axisMove)
     {
         switch (axisMove)
         {
-            case AXIS.X_AXIS_Y:
-                return 0;//GetZangleFromTwoPosition(fornmTrans,toTrans);
-            case AXIS.X_AXIS_Z:
-                return 0;//GetYangleFromTwoPosition(fornmTrans,toTrans);
+            case AXIS.X_AND_Y:
+                return GetZangleFromTwoPosition(fromTrans, toTrans);
+            case AXIS.X_AND_Z:
+                return GetYangleFromTwoPosition(fromTrans, toTrans);
             default:
-                return 0;
+                return 0f;
         }
+
+
     }
 
     private static float GetZangleFromTwoPosition(Transform fromTrans, Transform toTrans)
     {
-        if(fromTrans == null || toTrans == null)
+        if (fromTrans == null || toTrans == null)
         {
             return 0f;
         }
-
-        float xDIstance = toTrans.position.x - fromTrans.position.x;
+        float xDistance = toTrans.position.x - fromTrans.position.x;
         float yDistance = toTrans.position.y - fromTrans.position.y;
-        float angle = (Mathf.Atan2(yDistance, xDIstance) * Mathf.Rad2Deg) - 90.0f;
+        float angle = (Mathf.Atan2(yDistance, xDistance) * Mathf.Rad2Deg) - 90f;
+        angle = GetNormalizedAngle(angle);
 
         return angle;
     }
@@ -60,10 +62,10 @@ public static class SGUtil
         {
             return 0f;
         }
-
-        float xDIstance = toTrans.position.x - fromTrans.position.x;
+        float xDistance = toTrans.position.x - fromTrans.position.x;
         float zDistance = toTrans.position.z - fromTrans.position.z;
-        float angle = (Mathf.Atan2(zDistance, xDIstance) * Mathf.Rad2Deg) - 90.0f;
+        float angle = (Mathf.Atan2(zDistance, xDistance) * Mathf.Rad2Deg) - 90f;
+        angle = GetNormalizedAngle(angle);
 
         return angle;
     }
@@ -80,4 +82,8 @@ public static class SGUtil
         }
         return angle;
     }
+
 }
+
+
+

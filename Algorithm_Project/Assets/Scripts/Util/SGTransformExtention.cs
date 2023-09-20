@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class SGTransformExtention
+public static class SGTransformExtention 
 {
     public static void ResetTransform(this Transform self, bool worldSpace = false)
     {
@@ -13,7 +13,7 @@ public static class SGTransformExtention
 
     public static void ResetPosition(this Transform self, bool worldSpace = false)
     {
-        if(worldSpace)
+        if (worldSpace)
         {
             self.position = SGUtil.VECTOR3_ZERO;
         }
@@ -40,20 +40,21 @@ public static class SGTransformExtention
         self.localScale = SGUtil.VECTOR3_ONE;
     }
 
-    public static void setEulerAnglesX(this Transform self, float x)
+    public static void SetEulerAnglesX(this Transform self, float x)
     {
         Vector3 selfAngles = self.eulerAngles;
         self.rotation = Quaternion.Euler(x, selfAngles.y, selfAngles.z);
     }
-    public static void setEulerAnglesY(this Transform self, float y)
+
+    public static void SetEulerAnglesY(this Transform self, float y)
     {
         Vector3 selfAngles = self.eulerAngles;
-        self.rotation = Quaternion.Euler(selfAngles.x, y , selfAngles.z);
+        self.rotation = Quaternion.Euler(selfAngles.x, y, selfAngles.z);
     }
-    public static void setEulerAnglesZ(this Transform self, float z)
+
+    public static void SetEulerAnglesZ(this Transform self, float z)
     {
         Vector3 selfAngles = self.eulerAngles;
         self.rotation = Quaternion.Euler(selfAngles.x, selfAngles.y, z);
     }
-
 }
