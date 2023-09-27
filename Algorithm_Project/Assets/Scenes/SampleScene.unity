@@ -250,7 +250,7 @@ MonoBehaviour:
   autoReleaseTime: 10
   wayNum: 8
   waveCenterAngle: 180
-  waveRangeSize: 70
+  waveRangeSize: 90
   waveSpeed: 6
   betweenAngle: 45
   nextLineDelay: 0.05
