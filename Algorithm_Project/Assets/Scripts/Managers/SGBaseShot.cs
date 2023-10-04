@@ -55,7 +55,6 @@ public abstract class SGBaseShot : MonoBehaviour                    //총알의 기�
     public virtual void FinishedShot()          //샷이 끝났을 때 이벤트를 넣거나 함수 호출
     {
         _shooting = false;
-       
     }      
     protected SGProjectile GetProjectile(Vector3 position, bool forceInstantiate = false)
     {
