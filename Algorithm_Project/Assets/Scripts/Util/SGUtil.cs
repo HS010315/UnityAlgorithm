@@ -90,7 +90,6 @@ public static class SGUtil
             baseAngle + (betweenAngle * Mathf.Ceil((float)wayIndex / 2f));
 
         return angle;
-
     }
 }
 
